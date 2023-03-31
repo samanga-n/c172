@@ -93,8 +93,10 @@ AFRAME.registerComponent("markerhandler", {
       var orderButtton = document.getElementById("order-button");
       var orderSummaryButtton = document.getElementById("order-summary-button");
 
-      var payButton = document.getElementById("pay-button");
-
+      //get the pay button id
+      
+      
+      
       // Handling Click Events
       ratingButton.addEventListener("click", function () {
         swal({
@@ -122,7 +124,9 @@ AFRAME.registerComponent("markerhandler", {
         this.handleOrderSummary()
       );
 
-      payButton.addEventListener("click", () => this.handlePayment());
+      //add event listener for paybutton
+      
+      
     }
   },
 
@@ -273,30 +277,14 @@ AFRAME.registerComponent("markerhandler", {
   },
   handlePayment: function () {
     // Close Modal
-    document.getElementById("modal-div").style.display = "none";
+   
 
     // Getting Table Number
     var tNumber;
     tableNumber <= 9 ? (tNumber = `T0${tableNumber}`) : `T${tableNumber}`;
 
     //Reseting current orders and total bill
-    firebase
-      .firestore()
-      .collection("tables")
-      .doc(tNumber)
-      .update({
-        current_orders: {},
-        total_bill: 0
-      })
-      .then(() => {
-        swal({
-          icon: "success",
-          title: "Thanks For Paying !",
-          text: "We Hope You Enjoyed Your Food !!",
-          timer: 2500,
-          buttons: false
-        });
-      });
+   
   },
   handleMarkerLost: function () {
     // Changing button div visibility
